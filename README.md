@@ -109,23 +109,38 @@ This project leverages several Next.js optimizations:
 ## 📊 Feature Overview
 
 ### Dashboard View
-![Dashboard View](https://via.placeholder.com/800x400.png?text=Dashboard+View)
+![Dashboard View](/Volumes/Buchi/performance-dashboard_Flam/Dashboard.png)
 - Real-time data visualization
 - Interactive chart controls
 - Performance metrics display
 
 ### Chart Types
 #### Line Chart
-![Line Chart](https://via.placeholder.com/400x300.png?text=Line+Chart)
+![Line Chart](/Volumes/Buchi/performance-dashboard_Flam/Line.png)
 - Smooth animations
 - Time-series data
 - Zoom and pan functionality
 
 #### Bar Chart
-![Bar Chart](https://via.placeholder.com/400x300.png?text=Bar+Chart)
+![Bar Chart](/Volumes/Buchi/performance-dashboard_Flam/Bar.png)
 - Categorical data visualization
 - Stacked/grouped bars
 - Custom color schemes
+- Responsive design
+
+#### Scatter Plot
+![Scatter Plot](/Volumes/Buchi/performance-dashboard_Flam/Scatter.png)
+- Correlation analysis
+- Data point clustering
+- Interactive tooltips
+- Customizable markers
+
+#### Heat Map
+![Heat Map](/Volumes/Buchi/performance-dashboard_Flam/HeatMap.png)
+- Data density visualization
+- Color intensity scaling
+- Time-based patterns
+- Interactive hover details
 
 ## 📝 Available Scripts
 
@@ -158,7 +173,3 @@ To test the dashboard with different data loads:
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
