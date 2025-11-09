@@ -2,7 +2,7 @@
 
 import { Suspense, lazy, useState, useEffect } from 'react';
 import { DataPoint } from '@/lib/types';
-import { dataProcessor } from '@/workers/dataProcessor';
+import { dataProcessor } from '@/src/workers/dataProcessor';
 import PerformanceMonitor from '@/components/ui/PerformanceMonitor';
 
 // Lazy load heavy components

@@ -11,6 +11,8 @@ interface LineChartProps {
   lineColor?: string;
   areaColor?: string;
   showArea?: boolean;
+  showPoints?: boolean;
+  showGrid?: boolean;
 }
 
 const LineChart: React.FC<LineChartProps> = ({
@@ -22,8 +24,8 @@ const LineChart: React.FC<LineChartProps> = ({
   areaColor = 'rgba(59, 130, 246, 0.2)',
   showArea = true,
 }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const animationFrameRef = useRef<number | undefined>(undefined);
   const lastRenderTimeRef = useRef<number>(0);
   const fpsRef = useRef<number[]>([]);
 

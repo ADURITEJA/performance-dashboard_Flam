@@ -3,7 +3,9 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { generateTimeSeriesData, generateHeatmapData } from '@/lib/dataGenerator';
-import { DataPoint, TimeRange, AggregationInterval } from '@/lib/types';
+import { DataPoint, TimeRangeType, AggregationInterval } from '@/lib/types';
+
+type TimeRange = TimeRangeType; // Alias for backward compatibility
 
 // Dynamically import chart components with no SSR
 const LineChart = dynamic(() => import('@/components/charts/LineChart'), { ssr: false });
@@ -30,11 +32,11 @@ export default function Dashboard() {
   const [autoRefreshInterval, setAutoRefreshInterval] = useState<number>(1000);
   
   // Refs for animation frame and performance tracking
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
   const lastUpdateRef = useRef<number>(0);
   const frameCountRef = useRef<number>(0);
   const lastFpsUpdateRef = useRef<number>(0);
-  const refreshIntervalRef = useRef<NodeJS.Timeout>();
+  const refreshIntervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
   
   // Generate initial data
   useEffect(() => {
@@ -80,14 +82,17 @@ export default function Dashboard() {
       let newData: DataPoint[] = [];
       
       if (activeChart === 'heatmap') {
-        newData = generateHeatmapData({
-          count: dataPoints,
-          timeRange,
-          withNoise: true,
-        });
+        newData = generateHeatmapData(
+          dataPoints, // xCount
+          10, // yCount
+          0, // minValue
+          100 // maxValue
+        );
       } else {
         newData = generateTimeSeriesData({
           count: dataPoints,
+          minValue: 0,
+          maxValue: 100,
           timeRange,
           withNoise: true,
         });
