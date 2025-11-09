@@ -129,14 +129,14 @@ This project leverages several Next.js optimizations:
 - Responsive design
 
 #### Scatter Plot
-![Scatter Plot](/Volumes/Buchi/performance-dashboard_Flam/Scatter.png)
+![Scatter Plot](/performance-dashboard_Flam/Scatter.png)
 - Correlation analysis
 - Data point clustering
 - Interactive tooltips
 - Customizable markers
 
 #### Heat Map
-![Heat Map](/Volumes/Buchi/performance-dashboard_Flam/HeatMap.png)
+![Heat Map](/performance-dashboard_Flam/HeatMap.png)
 - Data density visualization
 - Color intensity scaling
 - Time-based patterns
