@@ -2,7 +2,7 @@
 
 A high-performance real-time dashboard built with Next.js 14+, TypeScript, and Tailwind CSS that can handle 10,000+ data points at 60fps.
 
-![Dashboard Screenshot](https://via.placeholder.com/1200x600.png?text=Performance+Dashboard+Screenshot)
+![Dashboard Screenshot](./assets/Dashboard.png)
 
 ## ✨ Features
 
@@ -107,8 +107,6 @@ This project leverages several Next.js optimizations:
 - Caching strategies for assets
 
 ## 📊 Feature Overview
-## 📊 Feature Overview
-
 ### Dashboard View
 ![Dashboard View](./assets/Dashboard.png)
 - Real-time data visualization
