@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run copy-worker",
+    "build:vercel": "next build && npm run copy-worker",
+    "copy-worker": "mkdir -p public/workers && [ -d src/workers ] && cp -r src/workers/*.worker.js public/workers/ || echo 'No worker files to copy'",
+    "prebuild": "npm run copy-worker",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
@@ -12,7 +15,8 @@
     "cypress:run": "cypress run",
     "analyze": "ANALYZE=true next build",
     "analyze:server": "ANALYZE=server next build",
-    "analyze:browser": "ANALYZE=browser next build"
+    "analyze:browser": "ANALYZE=browser next build",
+    "postinstall": "npm run copy-worker"
   },
   "dependencies": {
     "@types/node": "^20.0.0",
@@ -36,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "autoprefixer": "^10.4.21",
+    "babel-loader": "^10.0.0",
     "cypress": "^15.6.0",
     "eslint": "^8.0.0",
     "eslint-config-next": "14.0.0",
@@ -43,6 +48,8 @@
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.18",
-    "ts-jest": "^29.0.0"
+    "ts-jest": "^29.0.0",
+    "webpack": "^5.102.1",
+    "worker-loader": "^3.0.8"
   }
 }

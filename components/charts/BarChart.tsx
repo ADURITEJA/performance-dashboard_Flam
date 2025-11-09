@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
-import { DataPoint } from '@/lib/types';
+import { DataPoint } from '@/src/lib/types';
 
 interface BarChartProps {
   data: DataPoint[];
@@ -20,8 +20,8 @@ const BarChart: React.FC<BarChartProps> = ({
   barColor = '#3b82f6',
   showGrid = true,
 }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const animationFrameRef = useRef<number | undefined>(undefined);
   const lastRenderTimeRef = useRef<number>(0);
   const fpsRef = useRef<number[]>([]);
   const hoveredBarRef = useRef<number | null>(null);

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
-import { DataPoint } from '@/lib/types';
+import { DataPoint } from '@/src/lib/types';
 
 interface ScatterPlotProps {
   data: DataPoint[];
@@ -22,8 +22,8 @@ const ScatterPlot: React.FC<ScatterPlotProps> = ({
   pointSize = 5,
   showRegressionLine = true,
 }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const animationFrameRef = useRef<number | undefined>(undefined);
   const lastRenderTimeRef = useRef<number>(0);
   const fpsRef = useRef<number[]>([]);
   const hoveredPointRef = useRef<number | null>(null);

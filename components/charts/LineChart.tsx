@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
-import { DataPoint } from '@/lib/types';
+import { DataPoint } from '@/src/lib/types';
 
 interface LineChartProps {
   data: DataPoint[];

@@ -1,8 +1,8 @@
 'use client';
 
 import { Suspense, lazy, useState, useEffect } from 'react';
-import { DataPoint } from '@/lib/types';
-import { dataProcessor } from '@/src/workers/dataProcessor';
+import { DataPoint, TimeRangeType as TimeRange } from '@/src/lib/types';
+import { getDataProcessor } from '@/src/lib/workerUtils';
 import PerformanceMonitor from '@/components/ui/PerformanceMonitor';
 
 // Lazy load heavy components
@@ -27,38 +27,40 @@ export default function DashboardPage() {
 
   // Load data using Web Worker
   useEffect(() => {
+    let mounted = true;
+    
     const loadData = async () => {
       setIsLoading(true);
       const startTime = performance.now();
       
       try {
-        const generatedData = await dataProcessor.generateData({
-          count: 1000,
+        const processor = getDataProcessor();
+        const result = await processor.generateData({
+          count: 100,
           minValue: 0,
           maxValue: 100,
-          chartType
+          chartType,
         });
         
-        setData(generatedData);
-        
-        const endTime = performance.now();
-        setPerformanceMetrics(prev => ({
-          ...prev,
-          renderTime: endTime - startTime,
-          dataPoints: generatedData.length
-        }));
+        if (mounted) {
+          setData(Array.isArray(result) ? result : []);
+        }
       } catch (error) {
-        console.error('Error generating data:', error);
+        console.error('Error loading data:', error);
+        if (mounted) {
+          setData([]);
+        }
       } finally {
-        setIsLoading(false);
+        if (mounted) {
+          setIsLoading(false);
+        }
       }
     };
 
     loadData();
     
-    // Cleanup
     return () => {
-      // Any cleanup if needed
+      mounted = false;
     };
   }, [chartType]);
 

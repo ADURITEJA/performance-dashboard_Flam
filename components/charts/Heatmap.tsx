@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
-import { DataPoint } from '@/lib/types';
+import { DataPoint } from '@/src/lib/types';
 
 interface HeatmapProps {
   data: DataPoint[];
@@ -22,8 +22,8 @@ const Heatmap: React.FC<HeatmapProps> = ({
   cellSize = 10,
   showAxisLabels = true,
 }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const animationFrameRef = useRef<number | undefined>(undefined);
   const lastRenderTimeRef = useRef<number>(0);
   const fpsRef = useRef<number[]>([]);
   const hoveredCellRef = useRef<{ row: number; col: number } | null>(null);

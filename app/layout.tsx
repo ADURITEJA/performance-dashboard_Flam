@@ -16,10 +16,8 @@ export const metadata: Metadata = {
   authors: [{ name: 'Your Name', url: 'https://yourwebsite.com' }],
   generator: 'Next.js',
   keywords: ['dashboard', 'performance', 'visualization', 'nextjs', 'react'],
-  themeColor: '#3b82f6',
-  colorScheme: 'light dark',
   manifest: '/manifest.json',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://performance-dashboard-flam.vercel.app'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -42,6 +40,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   themeColor: '#3b82f6',
+  colorScheme: 'light dark',
 };
 
 export default function RootLayout({
