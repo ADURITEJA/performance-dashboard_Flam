@@ -107,40 +107,42 @@ This project leverages several Next.js optimizations:
 - Caching strategies for assets
 
 ## 📊 Feature Overview
+## 📊 Feature Overview
 
 ### Dashboard View
-![Dashboard View](/Volumes/Buchi/performance-dashboard_Flam/Dashboard.png)
+![Dashboard View](./assets/Dashboard.png)
 - Real-time data visualization
 - Interactive chart controls
 - Performance metrics display
 
 ### Chart Types
 #### Line Chart
-![Line Chart](/Volumes/Buchi/performance-dashboard_Flam/Line.png)
+![Line Chart](./assets/Line.png)
 - Smooth animations
 - Time-series data
 - Zoom and pan functionality
 
 #### Bar Chart
-![Bar Chart](/Volumes/Buchi/performance-dashboard_Flam/Bar.png)
+![Bar Chart](./assets/Bar.png)
 - Categorical data visualization
 - Stacked/grouped bars
 - Custom color schemes
 - Responsive design
 
 #### Scatter Plot
-![Scatter Plot](/performance-dashboard_Flam/Scatter.png)
+![Scatter Plot](./assets/Scatter.png)
 - Correlation analysis
 - Data point clustering
 - Interactive tooltips
 - Customizable markers
 
 #### Heat Map
-![Heat Map](/performance-dashboard_Flam/HeatMap.png)
+![Heat Map](./assets/HeatMap.png)
 - Data density visualization
 - Color intensity scaling
 - Time-based patterns
 - Interactive hover details
+
 
 ## 📝 Available Scripts
 
